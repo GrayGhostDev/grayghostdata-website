@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://grayghostdata.com
+
+# Sitemaps
+Sitemap: https://grayghostdata.com/sitemap.xml
+Sitemap: https://grayghostdata.com/server-sitemap.xml

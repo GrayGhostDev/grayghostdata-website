@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="96" height="96" rx="48" fill="#E5E7EB" fill-opacity="0.1"/>
+  <path d="M48 24L72 36V60L48 72L24 60V36L48 24Z" stroke="currentColor" stroke-width="4" fill="none"/>
+  <path d="M48 32L64 40V56L48 64L32 56V40L48 32Z" stroke="currentColor" stroke-width="3" fill="none"/>
+  <text x="48" y="52" text-anchor="middle" font-family="Arial" font-size="12" fill="currentColor">CISSP</text>
+</svg>

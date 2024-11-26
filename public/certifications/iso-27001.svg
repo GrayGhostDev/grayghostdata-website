@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="96" height="96" rx="48" fill="#E5E7EB" fill-opacity="0.1"/>
+  <path d="M48 20C32.536 20 20 32.536 20 48C20 63.464 32.536 76 48 76C63.464 76 76 63.464 76 48C76 32.536 63.464 20 48 20ZM48 72C34.745 72 24 61.255 24 48C24 34.745 34.745 24 48 24C61.255 24 72 34.745 72 48C72 61.255 61.255 72 48 72Z" fill="currentColor"/>
+  <path d="M48 28C36.954 28 28 36.954 28 48C28 59.046 36.954 68 48 68C59.046 68 68 59.046 68 48C68 36.954 59.046 28 48 28ZM48 64C39.163 64 32 56.837 32 48C32 39.163 39.163 32 48 32C56.837 32 64 39.163 64 48C64 56.837 56.837 64 48 64Z" fill="currentColor"/>
+  <text x="48" y="52" text-anchor="middle" font-family="Arial" font-size="12" fill="currentColor">ISO 27001</text>
+</svg>

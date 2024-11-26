@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="96" height="96" rx="48" fill="#E5E7EB" fill-opacity="0.1"/>
+  <path d="M28 48L48 28L68 48L48 68L28 48Z" stroke="currentColor" stroke-width="4" fill="none"/>
+  <path d="M36 48L48 36L60 48L48 60L36 48Z" stroke="currentColor" stroke-width="3" fill="none"/>
+  <text x="48" y="52" text-anchor="middle" font-family="Arial" font-size="10" fill="currentColor">AWS Security</text>
+</svg>
