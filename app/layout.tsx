@@ -21,31 +21,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | Gray Ghost Data",
-    default: "Gray Ghost Data - Data Analytics & Cloud Security Solutions",
-  },
+  title: "Gray Ghost Data - Cybersecurity & Data Analytics Solutions",
   description:
-    "Professional data analytics, cloud security, and blockchain solutions for modern businesses.",
+    "Enterprise-grade cybersecurity and data analytics solutions for modern businesses. Protect your assets and unlock data-driven insights.",
   keywords: [
-    "data analytics",
-    "cloud security",
-    "blockchain",
-    "business intelligence",
     "cybersecurity",
-    "data solutions",
+    "data analytics",
+    "enterprise security",
+    "threat detection",
+    "data protection",
+    "security consulting",
   ],
-  openGraph: {
-    title: 'Gray Ghost Data Consultants LLC',
-    description: 'Enterprise-grade cybersecurity solutions and data analytics',
-    images: ['/og-image.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Gray Ghost Data Consultants LLC',
-    description: 'Enterprise-grade cybersecurity solutions and data analytics',
-    images: ['/og-image.jpg'],
-  },
 };
 
 export default function RootLayout({

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSelector } from "@/components/language-selector";
 import { useTranslation } from "@/lib/i18n/use-translation";
+import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 const routes = [
   {
@@ -62,11 +63,20 @@ export function Navbar() {
             {/* Mobile menu can be added here */}
           </div>
           <nav className="flex items-center space-x-2">
-            <Link href="/client-portal">
-              <Button variant="ghost" className="text-sm">
-                {t("nav.clientPortal")}
-              </Button>
-            </Link>
+            <SignedIn>
+              <Link href="/client-portal">
+                <Button variant="ghost" className="text-sm">
+                  {t("nav.clientPortal")}
+                </Button>
+              </Link>
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button variant="ghost" className="text-sm">
+                  {t("nav.clientPortal")}
+                </Button>
+              </SignInButton>
+            </SignedOut>
             <LanguageSelector />
             <ThemeToggle />
           </nav>

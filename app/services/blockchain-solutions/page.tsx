@@ -38,7 +38,7 @@ export default function BlockchainSolutionsPage() {
       <ServiceDetailLayout
         title="Blockchain Solutions"
         description="Transform your business with innovative blockchain solutions. Our expert team helps organizations implement secure and scalable blockchain technology."
-        icon={GitMerge}
+        iconName="git-merge"
         serviceType="software-development"
         features={[
           "Smart Contract Development",
@@ -135,31 +135,36 @@ export default function BlockchainSolutionsPage() {
             ],
           },
         ]}
-      />
+      >
+        <div>
+          <section className="py-20 bg-slate-50">
+            <div className="container">
+              <div className="max-w-3xl mx-auto text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
+                <p className="text-lg text-muted-foreground">
+                  Discover how our blockchain solutions can revolutionize your business operations.
+                </p>
+              </div>
+              <ServiceFinder 
+                title="Explore Our Blockchain Solutions"
+                description="Find the perfect blockchain solution for your business needs."
+              />
+            </div>
+          </section>
 
-      <section className="py-20 bg-muted/50">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
-            <p className="text-lg text-muted-foreground">
-              Answer a few questions to get personalized blockchain recommendations tailored to your needs.
-            </p>
-          </div>
-          <ServiceFinder />
+          <section className="py-20">
+            <div className="container">
+              <div className="max-w-3xl mx-auto text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Client Success Stories</h2>
+                <p className="text-lg text-muted-foreground">
+                  See how our blockchain solutions have transformed businesses worldwide.
+                </p>
+              </div>
+              <SuccessStoriesCarousel category="blockchain" />
+            </div>
+          </section>
         </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Client Success Stories</h2>
-            <p className="text-lg text-muted-foreground">
-              See how our blockchain solutions have transformed organizations across industries.
-            </p>
-          </div>
-          <SuccessStoriesCarousel />
-        </div>
-      </section>
+      </ServiceDetailLayout>
     </>
   );
 }

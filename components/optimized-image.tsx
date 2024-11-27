@@ -9,6 +9,7 @@ export function OptimizedImage({
   src,
   alt,
   fallbackSrc = '/images/placeholder.jpg',
+  loading = 'lazy',
   ...props
 }: OptimizedImageProps) {
   const [imgSrc, setImgSrc] = useState(src);
@@ -23,7 +24,7 @@ export function OptimizedImage({
         onError={() => setImgSrc(fallbackSrc)}
         onLoad={() => setIsLoading(false)}
         quality={90}
-        loading="lazy"
+        loading={props.priority ? undefined : loading}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className={`${props.className || ''} ${
           isLoading ? 'scale-110 blur-2xl grayscale' : 'scale-100 blur-0 grayscale-0'

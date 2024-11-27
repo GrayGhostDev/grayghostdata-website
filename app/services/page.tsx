@@ -1,20 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Shield,
-  Database,
-  Brain,
-  Network,
-  Lock,
-  Cloud,
-  LineChart,
-  Code,
-} from "lucide-react";
 import { ServiceCard } from "@/components/service-card";
 import { Button } from "@/components/ui/button";
+import { ServiceFinder } from "@/components/service-finder";
+import type { IconName } from "@/components/ui/icon";
 
-const services = [
+const services: {
+  title: string;
+  description: string;
+  iconName: IconName;
+  features: string[];
+  technologies: string[];
+  learnMoreHref: string;
+}[] = [
   {
     title: "Cybersecurity Assessment",
     description: "Comprehensive evaluation of your security infrastructure to identify vulnerabilities and strengthen your defenses.",
@@ -81,7 +80,7 @@ const services = [
   {
     title: "Blockchain Solutions",
     description: "Build secure and scalable blockchain applications for your business needs.",
-    iconName: "network",
+    iconName: "git-merge",
     features: [
       "Smart Contract Development",
       "DeFi Solutions",
@@ -102,7 +101,7 @@ const services = [
   {
     title: "Security Operations",
     description: "24/7 monitoring and response to protect your organization from cyber threats.",
-    iconName: "lock",
+    iconName: "shield-alert",
     features: [
       "Security Monitoring",
       "Incident Response",
@@ -144,21 +143,21 @@ const services = [
   {
     title: "Business Intelligence",
     description: "Make data-driven decisions with our comprehensive business intelligence solutions.",
-    iconName: "chart-line",
+    iconName: "line-chart",
     features: [
       "Data Warehousing",
       "Dashboard Development",
-      "KPI Tracking",
-      "Report Automation",
+      "Real-time Analytics",
+      "Performance Metrics",
+      "Custom Reports",
       "Data Integration",
-      "Analytics Training",
     ],
     technologies: [
-      "Power BI",
       "Tableau",
+      "Power BI",
       "Looker",
       "Snowflake",
-      "Redshift",
+      "Apache Superset",
     ],
     learnMoreHref: "/services/business-intelligence",
   },
@@ -212,6 +211,20 @@ export default function ServicesPage() {
               <ServiceCard key={service.title} {...service} index={index} />
             ))}
           </div>
+
+          {/* Service Finder Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto mb-24"
+          >
+            <ServiceFinder 
+              title="Find the Right Solution for Your Business"
+              description="Answer a few questions to get personalized service recommendations tailored to your needs."
+            />
+          </motion.div>
 
           {/* CTA Section */}
           <motion.div

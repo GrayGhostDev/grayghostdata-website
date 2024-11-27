@@ -134,10 +134,13 @@ export default function CloudSecurityPage() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
             <p className="text-lg text-muted-foreground">
-              Answer a few questions to get personalized cloud security recommendations tailored to your needs.
+              Discover how our cloud security solutions can protect your cloud infrastructure and data.
             </p>
           </div>
-          <ServiceFinder />
+          <ServiceFinder 
+            title="Explore Our Cloud Security Solutions"
+            description="Find the perfect cloud security solution to protect your cloud infrastructure and ensure data compliance."
+          />
         </div>
       </section>
 

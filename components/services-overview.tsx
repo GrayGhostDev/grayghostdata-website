@@ -2,10 +2,9 @@
 
 import { motion, useAnimation, useInView } from "framer-motion";
 import { 
-  Shield, Database, Code, Lock, Cloud, HeartPulse,
-  Search, AlertTriangle, FileCheck, BookOpen,
-  Network, Fingerprint, Brain, BarChart3, 
-  Workflow, Blocks, Key, Coins
+  Shield, Database, Code, Lock, Cloud, 
+  LineChart, Network, FileSearch, AlertTriangle, 
+  FileText, Brain, BarChart3, ArrowRight
 } from "lucide-react";
 import {
   Card,
@@ -14,9 +13,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 const services = [
   {
@@ -29,7 +29,8 @@ const services = [
       "Machine learning detection",
       "Real-time monitoring"
     ],
-    category: "Security"
+    category: "Security",
+    href: "/services/advanced-threat-detection"
   },
   {
     icon: AlertTriangle,
@@ -41,19 +42,21 @@ const services = [
       "System recovery",
       "Post-incident analysis"
     ],
-    category: "Security"
+    category: "Security",
+    href: "/services/incident-response"
   },
   {
-    icon: Search,
+    icon: FileSearch,
     title: "Security Assessments",
     description: "Comprehensive security auditing and testing",
     features: [
       "Penetration testing",
       "Vulnerability scanning",
       "Risk assessment",
-      "Security architecture review"
+      "Compliance auditing"
     ],
-    category: "Assessment"
+    category: "Security",
+    href: "/services/security-assessments"
   },
   {
     icon: Database,
@@ -65,7 +68,8 @@ const services = [
       "Data visualization",
       "Custom reporting"
     ],
-    category: "Analytics"
+    category: "Analytics",
+    href: "/services/data-analytics"
   },
   {
     icon: Brain,
@@ -77,10 +81,11 @@ const services = [
       "Neural networks",
       "Deep learning"
     ],
-    category: "AI"
+    category: "AI",
+    href: "/services/ai-solutions"
   },
   {
-    icon: Blocks,
+    icon: Network,
     title: "RWA Tokenization",
     description: "Secure asset tokenization solutions",
     features: [
@@ -89,7 +94,8 @@ const services = [
       "Asset verification",
       "Blockchain integration"
     ],
-    category: "Blockchain"
+    category: "Blockchain",
+    href: "/services/rwa-tokenization"
   }
 ];
 
@@ -109,6 +115,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: true, margin: "-100px" });
   const Icon = service.icon;
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
@@ -119,6 +126,8 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
       transition={{ delay: index * 0.1 }}
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
       className="h-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <Card className="h-full group hover:shadow-lg hover:shadow-primary/5 transition-shadow duration-300">
         <CardHeader>
@@ -158,16 +167,22 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
             transition={{ delay: (index * 0.1) + 0.4 }}
             className="mt-4"
           >
-            <Button variant="ghost" className="w-full group-hover:bg-primary/5">
-              Learn More
-              <motion.div
-                className="ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1, repeat: Infinity }}
+            <Link href={service.href}>
+              <Button 
+                variant="ghost" 
+                className="w-full group-hover:bg-primary/5"
               >
-                →
-              </motion.div>
-            </Button>
+                <span className="relative z-10 flex items-center gap-2">
+                  Learn More
+                  <motion.div
+                    animate={{ x: isHovered ? 5 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.div>
+                </span>
+              </Button>
+            </Link>
           </motion.div>
         </CardContent>
       </Card>

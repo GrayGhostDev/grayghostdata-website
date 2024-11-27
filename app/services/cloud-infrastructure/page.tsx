@@ -149,125 +149,80 @@ export default function CloudInfrastructurePage() {
     <>
       <ServiceDetailLayout
         title="Cloud Infrastructure"
-        description="Build scalable and secure cloud solutions for your enterprise."
+        description="Build and maintain scalable, secure, and efficient cloud infrastructure for your business."
         iconName="cloud"
+        serviceType="cloud"
         features={[
           "Cloud Migration",
           "Infrastructure as Code",
-          "Serverless Architecture",
-          "Container Orchestration",
-          "Cloud Security",
+          "Containerization",
+          "Microservices",
+          "Auto Scaling",
+          "Load Balancing",
+          "Disaster Recovery",
+          "Monitoring & Logging",
           "Cost Optimization",
         ]}
         benefits={[
           "Improved scalability",
-          "Enhanced security",
+          "Enhanced reliability",
           "Cost efficiency",
+          "Better performance",
           "Global reach",
-          "High availability",
-          "Disaster recovery",
+          "Faster deployment",
         ]}
         process={[
           {
             title: "Assessment",
-            description: "Evaluate infrastructure requirements",
-            iconName: "server"
+            description: "Evaluating current infrastructure and requirements.",
+            iconName: "search",
           },
           {
             title: "Architecture",
-            description: "Design scalable cloud solutions",
-            iconName: "network-wired"
+            description: "Designing scalable cloud architecture.",
+            iconName: "network-wired",
           },
           {
-            title: "Development",
-            description: "Implement cloud infrastructure",
-            iconName: "code"
+            title: "Migration",
+            description: "Seamless transition to cloud infrastructure.",
+            iconName: "cloud",
           },
           {
             title: "Optimization",
-            description: "Monitor and optimize performance",
-            iconName: "cog"
-          }
-        ]}
-        technologies={[
-          "AWS",
-          "Azure",
-          "Google Cloud",
-          "Kubernetes",
-          "Docker",
-          "Terraform",
-          "Ansible",
-          "Jenkins",
-          "Prometheus",
-          "Grafana",
-        ]}
-        faqs={[
-          {
-            question: "Which cloud providers do you work with?",
-            answer: "We work with major cloud providers including AWS, Azure, and Google Cloud, and can help you choose the best option for your needs.",
-          },
-          {
-            question: "How do you ensure cloud security?",
-            answer: "We implement security best practices, including encryption, access controls, monitoring, and compliance measures.",
-          },
-          {
-            question: "Can you help with cloud migration?",
-            answer: "Yes, we provide end-to-end cloud migration services, from planning to execution, with minimal disruption to your operations.",
-          },
-          {
-            question: "How do you optimize cloud costs?",
-            answer: "We implement cost monitoring, resource optimization, and automated scaling to ensure efficient use of cloud resources.",
+            description: "Continuous monitoring and improvement.",
+            iconName: "cog",
           },
         ]}
-        caseStudies={[
-          {
-            title: "E-commerce Cloud Migration",
-            description: "Migrated large e-commerce platform to cloud infrastructure.",
-            industry: "Retail",
-            results: [
-              "40% reduction in infrastructure costs",
-              "99.99% uptime achieved",
-              "3x improvement in scalability",
-              "Zero downtime during migration",
-            ],
-          },
-          {
-            title: "DevOps Transformation",
-            description: "Implemented modern DevOps practices and cloud infrastructure.",
-            industry: "Technology",
-            results: [
-              "80% faster deployment time",
-              "50% reduction in incidents",
-              "Automated CI/CD pipeline",
-              "Improved developer productivity",
-            ],
-          },
-        ]}
-      />
+      >
+        <div>
+          <section className="py-20 bg-slate-50">
+            <div className="container">
+              <div className="max-w-3xl mx-auto text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
+                <p className="text-lg text-muted-foreground">
+                  Discover how our cloud infrastructure solutions can transform your business operations.
+                </p>
+              </div>
+              <ServiceFinder 
+                title="Explore Our Cloud Solutions"
+                description="Find the perfect cloud infrastructure solution for your organization."
+              />
+            </div>
+          </section>
 
-      <section className="py-20 bg-muted/50">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
-            <p className="text-lg text-muted-foreground">
-              Answer a few questions to get personalized cloud infrastructure recommendations tailored to your needs.
-            </p>
-          </div>
-          <ServiceFinder />
+          <section className="py-20">
+            <div className="container">
+              <div className="max-w-3xl mx-auto text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Client Success Stories</h2>
+                <p className="text-lg text-muted-foreground">
+                  See how our cloud infrastructure solutions have transformed businesses worldwide.
+                </p>
+              </div>
+              <SuccessStoriesCarousel category="cloud" />
+            </div>
+          </section>
         </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Client Success Stories</h2>
-            <p className="text-lg text-muted-foreground">
-              See how our cloud infrastructure solutions have transformed businesses across industries.
-            </p>
-          </div>
-          <SuccessStoriesCarousel />
-        </div>
-      </section>
+      </ServiceDetailLayout>
 
       <PricingSection plans={cloudInfrastructurePricing} />
     </>

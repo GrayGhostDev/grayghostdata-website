@@ -19,7 +19,7 @@ export default function SecurityOperationsPage() {
     <ServiceDetailLayout
       title="Security Operations"
       description="Comprehensive security operations services providing 24/7 monitoring, rapid incident response, and proactive threat detection to protect your organization from evolving cyber threats."
-      icon={Shield}
+      iconName="shield"
       serviceType="cybersecurity"
       features={[
         "24/7 Security Monitoring",

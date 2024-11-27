@@ -263,7 +263,10 @@ export function FeaturedCaseStudies() {
                     src={study.image}
                     alt={study.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={study.id === caseStudies[0].id}
                     className="object-cover"
+                    quality={85}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-6">

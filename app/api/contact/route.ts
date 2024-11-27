@@ -7,11 +7,21 @@ export async function POST(req: Request) {
   try {
     const { name, email, company, phone, message, service } = await req.json();
 
+    // Basic validation
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: 'Name, email, and message are required' },
+        { status: 400 }
+      );
+    }
+
     const { data, error } = await resend.emails.send({
-      from: 'Gray Ghost Data <no-reply@grayghostdata.com>',
-      to: 'curtis@grayghostcyber.com',
-      subject: `Contact Form: ${name}${company ? ` from ${company}` : ''}`,
+      from: 'Gray Ghost Cyber <onboarding@resend.dev>',
+      to: 'stretchedlogisitics@gmail.com',  // Temporary: Using verified email for testing
+      subject: `[CONTACT FORM] ${name}${company ? ` from ${company}` : ''}`,
       text: `
+[This is a contact form submission that will be sent to curtis@grayghostcyber.com once domain is verified]
+
 Name: ${name}
 Email: ${email}
 ${company ? `Company: ${company}\n` : ''}${phone ? `Phone: ${phone}\n` : ''}${service ? `Service Interest: ${service}\n` : ''}
@@ -20,6 +30,10 @@ ${message}
       `,
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+  <div style="background-color: #f8fafc; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
+    <p style="color: #64748b; margin: 0;">This is a contact form submission that will be sent to curtis@grayghostcyber.com once domain is verified</p>
+  </div>
+
   <h2 style="color: #0f172a;">New Contact Form Submission</h2>
   
   <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -30,33 +44,35 @@ ${message}
     ${service ? `<p style="margin: 10px 0;"><strong>Service Interest:</strong> ${service}</p>` : ''}
   </div>
 
-  <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px;">
+  <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
     <h3 style="color: #0f172a; margin-top: 0;">Message:</h3>
-    <p style="white-space: pre-wrap;">${message}</p>
+    <p style="white-space: pre-wrap; margin: 0;">${message}</p>
+  </div>
+
+  <div style="font-size: 12px; color: #64748b; margin-top: 20px;">
+    <p>This email was sent from the contact form on grayghostcyber.com</p>
   </div>
 </div>
       `,
+      replyTo: email,
     });
 
     if (error) {
-      console.error('Failed to send email:', error);
+      console.error('Resend API error:', error);
       return NextResponse.json(
-        { success: false, error: 'Failed to send message' },
+        { error: 'Failed to send email' },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Message sent successfully' 
-    });
-  } catch (error) {
-    console.error('Failed to send message:', error);
     return NextResponse.json(
-      { 
-        success: false, 
-        error: 'Failed to send message' 
-      },
+      { message: 'Email sent successfully', id: data?.id },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
       { status: 500 }
     );
   }

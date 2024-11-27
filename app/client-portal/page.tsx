@@ -1,8 +1,5 @@
 "use client";
 
-import { useUser } from "@clerk/nextjs";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -31,34 +28,19 @@ const mockProjects = [
 const mockNotifications = [
   {
     id: "1",
-    title: "Project Update",
-    message: "New milestone achieved in Data Analytics Implementation",
+    title: "Security Report Available",
+    description: "Your monthly security report is now available for review.",
     date: "2024-01-15",
-    read: false,
   },
   {
     id: "2",
-    title: "Security Alert",
-    message: "Security audit report is ready for review",
+    title: "Project Update",
+    description: "New milestone achieved in Data Analytics Implementation.",
     date: "2024-01-14",
-    read: true,
   },
 ];
 
 export default function ClientPortal() {
-  const { isLoaded, isSignedIn, user } = useUser();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (isLoaded && !isSignedIn) {
-      router.push('/sign-in');
-    }
-  }, [isLoaded, isSignedIn, router]);
-
-  if (!isLoaded || !isSignedIn) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-  }
-
   return (
     <div className="container mx-auto py-8">
       <div className="flex justify-between items-center mb-8">
@@ -79,12 +61,12 @@ export default function ClientPortal() {
           <TabsTrigger value="settings">Settings</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="dashboard" className="space-y-4">
+        <TabsContent value="dashboard">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Active Projects</CardTitle>
-                <FileText className="h-4 w-4 text-muted-foreground" />
+                <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{mockProjects.length}</div>
@@ -92,90 +74,79 @@ export default function ClientPortal() {
             </Card>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mt-4">
             <Card className="col-span-4">
               <CardHeader>
-                <CardTitle>Projects Overview</CardTitle>
+                <CardTitle>Project Progress</CardTitle>
               </CardHeader>
-              <CardContent className="pl-2">
+              <CardContent>
                 {mockProjects.map((project) => (
                   <div key={project.id} className="mb-4">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium">{project.name}</span>
-                      <span className="text-sm text-muted-foreground">{project.progress}%</span>
+                      <div className="text-sm font-medium">{project.name}</div>
+                      <div className="text-sm text-muted-foreground">{project.progress}%</div>
                     </div>
-                    <Progress value={project.progress} className="h-2" />
+                    <Progress value={project.progress} />
                   </div>
                 ))}
               </CardContent>
             </Card>
+
             <Card className="col-span-3">
               <CardHeader>
-                <CardTitle>Calendar</CardTitle>
-                <CardDescription>Schedule and upcoming events</CardDescription>
+                <CardTitle>Recent Notifications</CardTitle>
               </CardHeader>
               <CardContent>
-                <Calendar mode="single" className="rounded-md border" />
+                <div className="space-y-4">
+                  {mockNotifications.map((notification) => (
+                    <div key={notification.id} className="flex flex-col space-y-1">
+                      <div className="text-sm font-medium">{notification.title}</div>
+                      <div className="text-sm text-muted-foreground">
+                        {notification.description}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        {notification.date}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           </div>
         </TabsContent>
 
-        <TabsContent value="projects" className="space-y-4">
-          <div className="grid gap-4">
-            {mockProjects.map((project) => (
-              <Card key={project.id}>
-                <CardHeader>
-                  <CardTitle>{project.name}</CardTitle>
-                  <CardDescription>Last updated: {project.lastUpdate}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Progress value={project.progress} className="h-2 mb-2" />
-                  <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>Progress: {project.progress}%</span>
-                    <span>Status: {project.status}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </TabsContent>
-
-        <TabsContent value="documents" className="space-y-4">
+        <TabsContent value="projects">
           <Card>
             <CardHeader>
-              <CardTitle>Documents</CardTitle>
-              <CardDescription>Your project documents and files</CardDescription>
+              <CardTitle>Projects</CardTitle>
+              <CardDescription>View and manage your active projects.</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">No documents available.</p>
+              {/* Project management content */}
             </CardContent>
           </Card>
         </TabsContent>
 
-        <TabsContent value="settings" className="space-y-4">
+        <TabsContent value="documents">
+          <Card>
+            <CardHeader>
+              <CardTitle>Documents</CardTitle>
+              <CardDescription>Access your reports and documents.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              {/* Document management content */}
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="settings">
           <Card>
             <CardHeader>
               <CardTitle>Settings</CardTitle>
-              <CardDescription>Manage your account settings</CardDescription>
+              <CardDescription>Manage your account settings.</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium">Email Notifications</p>
-                    <p className="text-sm text-muted-foreground">Receive email updates about your projects</p>
-                  </div>
-                  <Button variant="outline">Configure</Button>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium">Two-Factor Authentication</p>
-                    <p className="text-sm text-muted-foreground">Add an extra layer of security</p>
-                  </div>
-                  <Button variant="outline">Enable</Button>
-                </div>
-              </div>
+              {/* Settings content */}
             </CardContent>
           </Card>
         </TabsContent>

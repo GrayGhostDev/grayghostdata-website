@@ -18,24 +18,29 @@ import { motion } from "framer-motion";
 
 const services = [
   {
+    title: "Advanced Threat Detection",
+    href: "/services/advanced-threat-detection",
+    description: "Stay ahead of cyber threats with our advanced detection solutions",
+  },
+  {
     title: "Security Assessment",
     href: "/services/security-assessment",
-    description: "Comprehensive evaluation of your security infrastructure and practices",
-  },
-  {
-    title: "Data Analytics",
-    href: "/services/data-analytics",
-    description: "Transform your data into actionable insights",
-  },
-  {
-    title: "Blockchain Solutions",
-    href: "/services/blockchain",
-    description: "Custom blockchain development and consulting services",
+    description: "Comprehensive evaluation of your security infrastructure",
   },
   {
     title: "Incident Response",
     href: "/services/incident-response",
     description: "24/7 security incident response and management",
+  },
+  {
+    title: "AI Solutions",
+    href: "/services/ai-solutions",
+    description: "Harness the power of AI for your business",
+  },
+  {
+    title: "RWA Tokenization",
+    href: "/services/rwa-tokenization",
+    description: "Transform real-world assets into digital tokens",
   },
 ];
 
@@ -49,11 +54,6 @@ const resources = [
     title: "Case Studies",
     href: "/case-studies",
     description: "Real-world examples of our successful projects",
-  },
-  {
-    title: "Documentation",
-    href: "/docs",
-    description: "Detailed guides and technical documentation",
   },
 ];
 
@@ -91,7 +91,7 @@ export function MainNav() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
               {resources.map((resource) => (
                 <ListItem
                   key={resource.title}
@@ -122,27 +122,9 @@ export function MainNav() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/client-portal" legacyBehavior passHref>
-            <Button variant="default" className="ml-2">
-              Client Portal
-            </Button>
-          </Link>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <Link href="/careers" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Careers
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <Link href="/contact" legacyBehavior passHref>
-            <Button variant="default">
-              Contact Us
-            </Button>
-          </Link>
+          <Button asChild className="ml-2">
+            <Link href="/contact">Schedule Consultation</Link>
+          </Button>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
@@ -156,20 +138,20 @@ const ListItem = React.forwardRef<
   return (
     <li>
       <NavigationMenuLink asChild>
-        <motion.a
+        <Link
           ref={ref}
-          href={href}
+          href={href || "#"}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
-          whileHover={{ scale: 1.05 }}
+          {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </motion.a>
+        </Link>
       </NavigationMenuLink>
     </li>
   );

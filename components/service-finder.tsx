@@ -6,6 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Shield, Database, Cloud, LineChart } from "lucide-react";
 
+interface ServiceFinderProps {
+  title: string;
+  description: string;
+}
+
 interface Question {
   id: number;
   text: string;
@@ -162,7 +167,7 @@ const services = [
   },
 ];
 
-export function ServiceFinder() {
+export function ServiceFinder({ title, description }: ServiceFinderProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState({
     cybersecurity: 0,
@@ -209,93 +214,77 @@ export function ServiceFinder() {
 
   return (
     <div className="w-full max-w-4xl mx-auto">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold mb-4">{title}</h2>
+        <p className="text-lg text-muted-foreground">{description}</p>
+      </div>
+
       <AnimatePresence mode="wait">
         {!showResults ? (
           <motion.div
             key="question"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
             className="space-y-8"
           >
-            <div className="text-center">
-              <h2 className="text-2xl font-bold mb-2">
+            <Card className="p-6">
+              <h3 className="text-xl font-semibold mb-4">
                 {questions[currentQuestion].text}
-              </h2>
-              <div className="text-sm text-muted-foreground">
-                Question {currentQuestion + 1} of {questions.length}
+              </h3>
+              <div className="grid gap-4">
+                {questions[currentQuestion].options.map((option, index) => (
+                  <Button
+                    key={index}
+                    variant="outline"
+                    className="justify-start h-auto py-4 px-6 text-left"
+                    onClick={() => handleAnswer(option)}
+                  >
+                    {option.text}
+                  </Button>
+                ))}
               </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {questions[currentQuestion].options.map((option, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  className="p-6 h-auto text-left"
-                  onClick={() => handleAnswer(option)}
-                >
-                  {option.text}
-                </Button>
-              ))}
-            </div>
+            </Card>
           </motion.div>
         ) : (
           <motion.div
-            key="results"
+            key="result"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="space-y-8"
+            className="text-center"
           >
-            <div className="text-center">
-              <h2 className="text-2xl font-bold mb-4">Recommended Services</h2>
-              <p className="text-muted-foreground mb-8">
-                Based on your answers, here are our recommended services:
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {getRecommendedServices().map((service, index) => (
-                <Card
-                  key={service.id}
-                  className={`p-6 ${index === 0 ? "border-primary" : ""}`}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <service.icon className="h-6 w-6 text-primary" />
+            <Card className="p-8">
+              {(() => {
+                const sortedServices = getRecommendedServices();
+                const service = sortedServices[0];
+                return (
+                  <>
+                    <div className="mx-auto w-16 h-16 mb-6 text-primary">
+                      <service.icon className="w-full h-full" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">{service.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {service.description}
-                      </p>
-                      <Button
-                        variant="secondary"
-                        size="sm"
-                        className="w-full"
-                        onClick={() => window.location.href = service.link}
-                      >
-                        Learn More
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <Button
-                variant="outline"
-                onClick={resetQuiz}
-                className="mt-8"
-              >
-                Start Over
-              </Button>
-            </div>
+                    <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                    <p className="text-muted-foreground mb-8">
+                      {service.description}
+                    </p>
+                    <Button asChild>
+                      <a href={service.link}>Learn More</a>
+                    </Button>
+                  </>
+                );
+              })()}
+            </Card>
           </motion.div>
         )}
       </AnimatePresence>
+      <div className="text-center">
+        <Button
+          variant="outline"
+          onClick={resetQuiz}
+          className="mt-8"
+        >
+          Start Over
+        </Button>
+      </div>
     </div>
   );
 }

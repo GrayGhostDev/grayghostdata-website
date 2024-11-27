@@ -12,13 +12,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Icon, type IconName } from '@/components/ui/icon';
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  iconName: string;
+  iconName: IconName;
   features: string[];
   technologies: string[];
   learnMoreHref: string;
@@ -34,8 +33,6 @@ export function ServiceCard({
   learnMoreHref,
   index,
 }: ServiceCardProps) {
-  const icon = iconName.replace(/-/g, '') as IconProp;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -51,8 +48,8 @@ export function ServiceCard({
             className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4"
             whileHover={{ scale: 1.05 }}
           >
-            <FontAwesomeIcon 
-              icon={icon}
+            <Icon 
+              name={iconName}
               className="w-6 h-6 text-primary"
             />
           </motion.div>

@@ -203,36 +203,36 @@ export function HeroSection() {
             >
               <span className="relative z-10">Get Started</span>
               <motion.div
-                className="absolute inset-0 bg-primary/20"
-                initial={false}
-                animate={{
-                  scale: isHovered ? 1.5 : 1,
-                  opacity: isHovered ? 1 : 0
-                }}
+                className="absolute inset-0 bg-primary-foreground"
+                initial={{ x: "-100%" }}
+                animate={{ x: isHovered ? 0 : "-100%" }}
                 transition={{ duration: 0.3 }}
               />
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          
-          <Link href="/evaluation/cybersecurity">
+          <Link href="/services">
             <Button
+              variant="outline"
               size="lg"
               className="group relative overflow-hidden"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <span className="relative z-10">Learn More</span>
+              <span className="relative z-10 flex items-center gap-2">
+                Learn More
+                <motion.div
+                  animate={{ x: isHovered ? 5 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ArrowRight className="w-4 h-4" />
+                </motion.div>
+              </span>
               <motion.div
-                className="absolute inset-0 bg-primary/20"
-                initial={false}
-                animate={{
-                  scale: isHovered ? 1.5 : 1,
-                  opacity: isHovered ? 1 : 0
-                }}
+                className="absolute inset-0 bg-primary"
+                initial={{ x: "-100%" }}
+                animate={{ x: isHovered ? 0 : "-100%" }}
                 transition={{ duration: 0.3 }}
               />
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </motion.div>

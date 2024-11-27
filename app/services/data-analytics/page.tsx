@@ -29,38 +29,31 @@ import { generateServiceStructuredData } from "@/lib/structured-data";
 const dataAnalyticsPricing = [
   {
     name: "Basic Analytics",
-    price: 999,
+    price: "$999",
     description: "Essential data analytics for small businesses",
+    icon: BarChart,
     features: [
-      "Data collection & cleaning",
-      "Basic visualizations",
-      "Monthly reports",
-      "Email support"
-    ]
+      { text: "Data collection & cleaning", highlight: false },
+      { text: "Basic visualizations", highlight: false },
+      { text: "Monthly reports", highlight: false },
+      { text: "Email support", highlight: false }
+    ],
+    cta: "Get Started"
   },
   {
     name: "Professional",
-    price: 2499,
+    price: "$2,499",
     description: "Advanced analytics for growing businesses",
+    icon: LineChart,
+    popular: true,
     features: [
-      "Everything in Basic",
-      "Custom dashboards",
-      "Predictive analytics",
-      "API integration",
-      "Priority support"
-    ]
-  },
-  {
-    name: "Enterprise",
-    price: null,
-    description: "Full-scale analytics for large organizations",
-    features: [
-      "Everything in Professional",
-      "Custom solutions",
-      "On-premise deployment",
-      "24/7 support",
-      "Dedicated team"
-    ]
+      { text: "Everything in Basic", highlight: true },
+      { text: "Custom dashboards", highlight: false },
+      { text: "Predictive analytics", highlight: false },
+      { text: "API integration", highlight: false },
+      { text: "Priority support", highlight: false }
+    ],
+    cta: "Upgrade Now"
   }
 ];
 
@@ -181,11 +174,7 @@ export default function DataAnalyticsPage() {
           height={1080}
           className="w-full h-[300px] md:h-[400px] object-cover"
           priority
-          onError={(e) => {
-            const imgElement = e.target as HTMLImageElement;
-            imgElement.src = '/images/placeholder-hero.jpg';
-            imgElement.alt = 'Data Analytics Solutions';
-          }}
+          fallbackSrc="/images/placeholder-hero.jpg"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-background/40 backdrop-blur-[2px]" />
       </div>
@@ -193,6 +182,7 @@ export default function DataAnalyticsPage() {
         title="Data Analytics"
         description="Transform your data into actionable insights."
         iconName="chart-line"
+        serviceType="data-analytics"
         features={[
           "Data Analysis",
           "Business Intelligence",
@@ -287,10 +277,13 @@ export default function DataAnalyticsPage() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
             <p className="text-lg text-muted-foreground">
-              Answer a few questions to get personalized service recommendations tailored to your needs.
+              Discover how our data analytics solutions can transform your raw data into actionable insights.
             </p>
           </div>
-          <ServiceFinder />
+          <ServiceFinder 
+            title="Explore Our Data Analytics Solutions"
+            description="Find the perfect data analytics solution to unlock the value in your data and drive business growth."
+          />
         </div>
       </section>
       <section className="py-20">

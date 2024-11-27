@@ -44,6 +44,9 @@ export function Header() {
           <div className="hidden md:flex items-center space-x-4">
             <MainNav />
             <ThemeToggle />
+            <Button asChild>
+              <Link href="/contact">Schedule Consultation</Link>
+            </Button>
           </div>
 
           <div className="md:hidden flex items-center space-x-2">
@@ -108,15 +111,6 @@ export function Header() {
                 </li>
                 <li>
                   <Link
-                    href="/careers"
-                    className="block py-2 text-sm hover:text-primary"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/contact"
                     className="block py-2 text-sm hover:text-primary"
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -124,11 +118,14 @@ export function Header() {
                     Contact
                   </Link>
                 </li>
-                <li className="pt-4 border-t">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Theme</span>
-                    <ThemeToggle />
-                  </div>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="block py-2 text-sm font-medium text-primary hover:text-primary/80"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Schedule Consultation
+                  </Link>
                 </li>
               </ul>
             </nav>

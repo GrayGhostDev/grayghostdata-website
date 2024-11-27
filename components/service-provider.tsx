@@ -8,7 +8,9 @@ export type ServiceType =
   | 'ai-and-ml'
   | 'data-analytics'
   | 'software-development'
-  | 'consulting';
+  | 'consulting'
+  | 'incident-response'
+  | 'security-assessments';
 
 interface ServiceContextType {
   serviceType: ServiceType;
@@ -29,7 +31,7 @@ export function ServiceProvider({ children, serviceType }: ServiceProviderProps)
   );
 }
 
-export function useService() {
+export function useService(): ServiceContextType {
   const context = useContext(ServiceContext);
   if (context === undefined) {
     throw new Error('useService must be used within a ServiceProvider');

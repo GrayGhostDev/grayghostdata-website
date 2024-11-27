@@ -124,10 +124,13 @@ export default function CybersecurityAssessmentPage() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
             <p className="text-lg text-muted-foreground">
-              Answer a few questions to get personalized security assessment recommendations tailored to your needs.
+              Discover how our cybersecurity assessment services can help protect your organization from threats.
             </p>
           </div>
-          <ServiceFinder />
+          <ServiceFinder 
+            title="Explore Our Security Assessment Solutions"
+            description="Find the perfect cybersecurity assessment solution to evaluate and strengthen your security posture."
+          />
         </div>
       </section>
 

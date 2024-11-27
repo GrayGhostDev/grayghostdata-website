@@ -86,41 +86,51 @@ const defaultPricingPlans: PricingPlan[] = [
     priceMonthly: "4,999",
     priceAnnual: "49,990",
     savings: "9,998",
-    description: "Ongoing security monitoring and management",
+    description: "Enterprise-grade security operations and threat management",
     features: [
       {
-        text: "24/7 Security Monitoring",
-        tooltip: "Continuous monitoring of your security infrastructure",
+        text: "24/7 Security Operations Center",
+        tooltip: "Round-the-clock monitoring and threat detection by security experts",
         highlight: true
       },
       {
-        text: "Incident Response",
-        tooltip: "Rapid response to security incidents and threats",
+        text: "Advanced Threat Detection",
+        tooltip: "AI-powered threat detection and behavioral analysis",
         highlight: true
       },
       {
-        text: "Threat Intelligence",
-        tooltip: "Real-time threat intelligence and updates",
+        text: "Incident Response & Recovery",
+        tooltip: "Rapid incident response with detailed recovery procedures",
         highlight: true
       },
       {
-        text: "Security Maintenance",
-        tooltip: "Regular updates and maintenance of security systems",
-        highlight: false
+        text: "Compliance Management",
+        tooltip: "Continuous compliance monitoring and reporting",
+        highlight: true
       },
       {
-        text: "Monthly Security Reports",
-        tooltip: "Detailed reports of security status and incidents",
-        highlight: false
+        text: "Security Awareness Training",
+        tooltip: "Regular security training and phishing simulations",
+        highlight: true
       },
       {
-        text: "Security Training",
-        tooltip: "Regular security awareness training for employees",
-        highlight: false
+        text: "Vulnerability Management",
+        tooltip: "Continuous vulnerability scanning and patch management",
+        highlight: true
+      },
+      {
+        text: "Cloud Security Monitoring",
+        tooltip: "Multi-cloud security monitoring and configuration management",
+        highlight: true
+      },
+      {
+        text: "Executive Reporting",
+        tooltip: "Monthly executive reports and security metrics",
+        highlight: true
       }
     ],
     popular: true,
-    cta: "Get Started",
+    cta: "Contact Sales",
     icon: Shield
   },
   {

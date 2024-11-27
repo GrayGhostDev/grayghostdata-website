@@ -2,12 +2,12 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, Slack, Google } from "lucide-react";
+import { Github, Slack, Chrome, type LucideIcon } from "lucide-react";
 
 interface Integration {
   name: string;
   description: string;
-  icon: React.ComponentType;
+  icon: LucideIcon;
   connected: boolean;
 }
 
@@ -26,8 +26,8 @@ const integrations: Integration[] = [
   },
   {
     name: "Google",
-    description: "Import contacts and calendar events",
-    icon: Google,
+    description: "Connect your Google account for seamless integration.",
+    icon: Chrome,
     connected: false,
   },
 ];
@@ -47,7 +47,7 @@ export function IntegrationSettings() {
           >
             <div className="flex items-center space-x-4">
               <div className="p-2 bg-muted rounded-lg">
-                <integration.icon className="h-6 w-6" />
+                <integration.icon className="h-6 w-6" strokeWidth={1.5} />
               </div>
               <div>
                 <h3 className="font-medium">{integration.name}</h3>

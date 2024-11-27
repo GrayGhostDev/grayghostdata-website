@@ -150,7 +150,7 @@ export default function DataGovernancePage() {
       <ServiceDetailLayout
         title="Data Governance"
         description="Establish robust data governance frameworks to ensure data quality, security, and compliance. Our expert team helps organizations implement effective data management practices and policies."
-        icon={Database}
+        iconName="database"
         serviceType="data-analytics"
         features={[
           "Data Policy Development",
@@ -254,10 +254,13 @@ export default function DataGovernancePage() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
             <p className="text-lg text-muted-foreground">
-              Answer a few questions to get personalized data governance recommendations tailored to your needs.
+              Discover how our data governance solutions can help you manage and protect your data assets.
             </p>
           </div>
-          <ServiceFinder />
+          <ServiceFinder 
+            title="Explore Our Data Governance Solutions"
+            description="Find the perfect data governance solution to ensure compliance and maximize the value of your data assets."
+          />
         </div>
       </section>
 

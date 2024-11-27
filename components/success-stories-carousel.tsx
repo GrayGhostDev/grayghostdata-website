@@ -44,7 +44,11 @@ const successStories: SuccessStory[] = [
   // Add more success stories here
 ];
 
-export function SuccessStoriesCarousel() {
+interface SuccessStoriesCarouselProps {
+  category?: string;
+}
+
+export function SuccessStoriesCarousel({ category }: SuccessStoriesCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -60,21 +64,25 @@ export function SuccessStoriesCarousel() {
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
 
+  const filteredStories = category
+    ? successStories.filter(story => story.industry.toLowerCase() === category.toLowerCase())
+    : successStories;
+
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
+      opacity: 0
     }),
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1,
+      opacity: 1
     },
     exit: (direction: number) => ({
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
+      opacity: 0
+    })
   };
 
   const navigate = (newDirection: number) => {
@@ -82,13 +90,17 @@ export function SuccessStoriesCarousel() {
     setDirection(newDirection);
     setCurrentIndex((prev) => {
       if (newDirection === 1) {
-        return (prev + 1) % successStories.length;
+        return (prev + 1) % filteredStories.length;
       }
-      return prev === 0 ? successStories.length - 1 : prev - 1;
+      return prev === 0 ? filteredStories.length - 1 : prev - 1;
     });
   };
 
-  const story = successStories[currentIndex];
+  if (filteredStories.length === 0) {
+    return null;
+  }
+
+  const story = filteredStories[currentIndex];
 
   return (
     <div className="relative w-full max-w-6xl mx-auto overflow-hidden">
@@ -102,7 +114,7 @@ export function SuccessStoriesCarousel() {
           exit="exit"
           transition={{
             x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
+            opacity: { duration: 0.2 }
           }}
           className="w-full"
         >
@@ -194,7 +206,7 @@ export function SuccessStoriesCarousel() {
       </Button>
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-        {successStories.map((_, index) => (
+        {filteredStories.map((_, index) => (
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-colors ${

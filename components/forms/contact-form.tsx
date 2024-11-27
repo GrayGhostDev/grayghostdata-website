@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -37,6 +38,7 @@ const defaultValues: Partial<ContactFormValues> = {
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -46,27 +48,29 @@ export function ContactForm() {
   async function onSubmit(data: ContactFormValues) {
     setIsSubmitting(true);
     try {
-      // TODO: Replace with your actual API endpoint
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) throw new Error("Failed to submit");
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to submit");
+      }
 
-      toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you as soon as possible.",
-      });
+      // Reset form before navigation
       form.reset();
+      
+      // Redirect to thank you page
+      router.push('/thank-you');
     } catch (error) {
+      console.error('Contact form error:', error);
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: "Error sending message",
+        description: error instanceof Error ? error.message : "Please try again later.",
         variant: "destructive",
       });
-    } finally {
       setIsSubmitting(false);
     }
   }

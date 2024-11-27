@@ -108,126 +108,80 @@ export default function BusinessIntelligencePage() {
       </div>
       <ServiceDetailLayout
         title="Business Intelligence"
-        description="Make data-driven decisions with our comprehensive business intelligence solutions."
-        iconName="chart-line"
+        description="Transform your data into actionable insights with our comprehensive business intelligence solutions."
+        iconName="line-chart"
+        serviceType="data-analytics"
         features={[
-          "Data Warehousing",
-          "Dashboard Development",
+          "Data Visualization",
+          "Custom Dashboards",
+          "Real-time Analytics",
           "KPI Tracking",
           "Report Automation",
           "Data Integration",
-          "Analytics Training",
+          "Predictive Analytics",
+          "Performance Metrics",
+          "Data Warehousing",
         ]}
         benefits={[
-          "Data-driven decisions",
+          "Better decision making",
           "Improved efficiency",
-          "Real-time insights",
-          "Better forecasting",
-          "Cost optimization",
-          "Performance tracking",
+          "Cost reduction",
+          "Revenue growth",
+          "Competitive advantage",
+          "Operational insights",
         ]}
         process={[
           {
-            title: "Discovery",
-            description: "Understand business requirements and goals",
-            iconName: "search"
+            title: "Data Assessment",
+            description: "Evaluating your data sources and requirements.",
+            iconName: "database",
           },
           {
-            title: "Data Integration",
-            description: "Connect and transform data sources",
-            iconName: "database"
+            title: "Solution Design",
+            description: "Designing custom BI architecture.",
+            iconName: "network-wired",
           },
           {
             title: "Implementation",
-            description: "Build BI dashboards and reports",
-            iconName: "cog"
+            description: "Building and integrating BI solutions.",
+            iconName: "cog",
           },
           {
             title: "Optimization",
-            description: "Refine and enhance analytics",
-            iconName: "chart-line"
-          }
-        ]}
-        technologies={[
-          "Power BI",
-          "Tableau",
-          "Looker",
-          "Snowflake",
-          "Redshift",
-          "BigQuery",
-          "Sisense",
-          "Qlik",
-          "Alteryx",
-          "Domo",
-        ]}
-        faqs={[
-          {
-            question: "Which BI tools do you work with?",
-            answer: "We work with leading BI platforms including Power BI, Tableau, Looker, and can recommend the best solution for your needs.",
-          },
-          {
-            question: "How do you handle data integration?",
-            answer: "We implement automated data integration pipelines that combine data from multiple sources while ensuring data quality.",
-          },
-          {
-            question: "Can you customize dashboards?",
-            answer: "Yes, we create custom dashboards tailored to your specific KPIs and business requirements.",
-          },
-          {
-            question: "What about data security?",
-            answer: "We implement robust security measures to protect your data, including access controls and encryption.",
+            description: "Continuous improvement and refinement.",
+            iconName: "chart-line",
           },
         ]}
-        caseStudies={[
-          {
-            title: "Retail Analytics Dashboard",
-            description: "Implemented comprehensive BI solution for retail chain.",
-            industry: "Retail",
-            results: [
-              "30% increase in sales",
-              "Real-time inventory tracking",
-              "Automated reporting",
-              "Mobile BI access",
-            ],
-          },
-          {
-            title: "Financial Analytics Platform",
-            description: "Developed custom BI solution for financial services.",
-            industry: "Finance",
-            results: [
-              "50% faster reporting",
-              "Improved forecast accuracy",
-              "Automated compliance reporting",
-              "Real-time risk monitoring",
-            ],
-          },
-          caseStudy,
-        ]}
-      />
+      >
+        <div>
+          <section className="py-20 bg-slate-50">
+            <div className="container">
+              <div className="max-w-3xl mx-auto text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
+                <p className="text-lg text-muted-foreground">
+                  Discover how our business intelligence solutions can transform your decision-making process.
+                </p>
+              </div>
+              <ServiceFinder 
+                title="Explore Our BI Solutions"
+                description="Find the perfect business intelligence solution for your organization."
+              />
+            </div>
+          </section>
 
-      <section className="py-20 bg-muted/50">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Find Your Perfect Solution</h2>
-            <p className="text-lg text-muted-foreground">
-              Answer a few questions to get personalized business intelligence recommendations tailored to your needs.
-            </p>
-          </div>
-          <ServiceFinder />
+          <section className="py-20">
+            <div className="container">
+              <div className="max-w-3xl mx-auto text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Client Success Stories</h2>
+                <p className="text-lg text-muted-foreground">
+                  See how our business intelligence solutions have transformed organizations worldwide.
+                </p>
+              </div>
+              <SuccessStoriesCarousel category="analytics" />
+            </div>
+          </section>
         </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Client Success Stories</h2>
-            <p className="text-lg text-muted-foreground">
-              See how our business intelligence solutions have transformed organizations across industries.
-            </p>
-          </div>
-          <SuccessStoriesCarousel />
-        </div>
-      </section>
+      </ServiceDetailLayout>
     </>
   );
 }
