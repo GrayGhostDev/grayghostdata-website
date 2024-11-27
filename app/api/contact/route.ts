@@ -16,12 +16,10 @@ export async function POST(req: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'Gray Ghost Cyber <onboarding@resend.dev>',
-      to: 'stretchedlogisitics@gmail.com',  // Temporary: Using verified email for testing
+      from: 'Gray Ghost Cyber <contact@grayghostcyber.com>',
+      to: 'curtis@grayghostcyber.com',
       subject: `[CONTACT FORM] ${name}${company ? ` from ${company}` : ''}`,
       text: `
-[This is a contact form submission that will be sent to curtis@grayghostcyber.com once domain is verified]
-
 Name: ${name}
 Email: ${email}
 ${company ? `Company: ${company}\n` : ''}${phone ? `Phone: ${phone}\n` : ''}${service ? `Service Interest: ${service}\n` : ''}
@@ -30,10 +28,6 @@ ${message}
       `,
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-  <div style="background-color: #f8fafc; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
-    <p style="color: #64748b; margin: 0;">This is a contact form submission that will be sent to curtis@grayghostcyber.com once domain is verified</p>
-  </div>
-
   <h2 style="color: #0f172a;">New Contact Form Submission</h2>
   
   <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
