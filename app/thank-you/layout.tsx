@@ -3,8 +3,9 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Thank You | Gray Ghost Cyber",
-  description: "Thank you for contacting Gray Ghost Cyber. We'll be in touch soon.",
+  title: "Thank You | Gray Ghost Data",
+  description:
+    "Thank you for contacting Gray Ghost Data. We'll be in touch soon.",
 };
 
 export default function ThankYouLayout({
