@@ -54,7 +54,7 @@ export default function QuantumComputingThreatArticle() {
             </span>
           </div>
 
-          <h1 className="text-4xl font-bold mb-4 neon-text">The Rising Quantum Computing Threat: Securing Tomorrow's Digital Frontier</h1>
+          <h1 className="text-4xl font-bold mb-4 neon-text">The Rising Quantum Computing Threat: Securing Tomorrow&apos;s Digital Frontier</h1>
 
           <div className="prose prose-invert max-w-none">
             <p className="text-xl text-muted-foreground mb-8">
@@ -63,7 +63,7 @@ export default function QuantumComputingThreatArticle() {
 
             <p>
               With each passing year, the advancements in quantum computing bring us closer to a pivotal moment, 
-              a point where the unimaginable power of quantum processors may render today's cryptographic safeguards obsolete. 
+              a point where the unimaginable power of quantum processors may render today&apos;s cryptographic safeguards obsolete. 
               This is no longer the stuff of science fiction. The era of quantum supremacy is on the horizon, and with it comes 
               a stark warning for the cybersecurity community: adapt or risk catastrophic vulnerabilities.
             </p>
@@ -84,12 +84,12 @@ export default function QuantumComputingThreatArticle() {
               like those underlying modern encryption, in a fraction of the time.
             </p>
 
-            <h2 className="text-2xl font-bold mt-12 mb-4 cyber-dots">Shor's Algorithm: The Harbinger of Doom</h2>
+            <h2 className="text-2xl font-bold mt-12 mb-4 cyber-dots">Shor&apos;s Algorithm: The Harbinger of Doom</h2>
             <p>
               In 1994, mathematician Peter Shor devised an algorithm that demonstrated the potential for quantum computers 
-              to crack widely used cryptographic schemes. Shor's algorithm can efficiently factorize large numbers, breaking 
+              to crack widely used cryptographic schemes. Shor&apos;s algorithm can efficiently factorize large numbers, breaking 
               RSA encryption, and solve discrete logarithms, jeopardizing ECC. While quantum computers capable of running 
-              Shor's algorithm on a scale necessary to break modern encryption do not yet exist, their eventual arrival 
+              Shor&apos;s algorithm on a scale necessary to break modern encryption do not yet exist, their eventual arrival 
               could dismantle decades of digital security overnight.
             </p>
 
@@ -101,7 +101,7 @@ export default function QuantumComputingThreatArticle() {
             </p>
 
             <div className="bg-primary/5 p-6 rounded-lg border border-primary/20 my-8">
-              <h3 className="text-xl font-bold mb-4">NIST's First Four PQC Candidates:</h3>
+              <h3 className="text-xl font-bold mb-4">NIST&apos;s First Four PQC Candidates:</h3>
               <ul className="list-disc pl-6 space-y-2">
                 <li>CRYSTALS-Kyber (Key encapsulation mechanism)</li>
                 <li>CRYSTALS-Dilithium (Digital signatures)</li>

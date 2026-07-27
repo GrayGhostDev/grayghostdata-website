@@ -209,7 +209,7 @@ export function FeaturedCaseStudies() {
             Success Stories
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            See how we've helped leading organizations transform their digital security
+            See how we&apos;ve helped leading organizations transform their digital security
             and data capabilities.
           </p>
         </motion.div>
@@ -319,7 +319,7 @@ export function FeaturedCaseStudies() {
                       Client Testimonial
                     </h4>
                     <blockquote className="text-muted-foreground">
-                      "{study.testimonial.quote}"
+                      &quot;{study.testimonial.quote}&quot;
                       <footer className="mt-2">
                         <p className="font-semibold text-foreground">{study.testimonial.author}</p>
                         <p className="text-sm text-muted-foreground">{study.testimonial.role}</p>

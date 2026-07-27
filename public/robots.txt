@@ -3,8 +3,8 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://grayghostcyber.com
+Host: https://grayghostdata.com
 
 # Sitemaps
-Sitemap: https://grayghostcyber.com/sitemap.xml
+Sitemap: https://grayghostdata.com/sitemap.xml
 Sitemap: https://grayghostcyber.com/server-sitemap.xml

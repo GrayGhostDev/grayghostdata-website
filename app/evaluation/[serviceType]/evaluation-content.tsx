@@ -15,7 +15,7 @@ export function EvaluationContent({ evaluation }: EvaluationContentProps) {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold mb-4">Evaluation Not Found</h1>
         <p className="text-muted-foreground mb-4">
-          Sorry, we couldn't find the evaluation test you're looking for.
+          Sorry, we couldn&apos;t find the evaluation test you&apos;re looking for.
         </p>
         <Button asChild>
           <a href="/">

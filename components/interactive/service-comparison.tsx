@@ -167,7 +167,7 @@ export function ServiceComparison() {
       <div className="text-center space-y-4">
         <h2 className="text-3xl font-bold">Choose Your Security Plan</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Select the security package that best fits your organization's needs.
+          Select the security package that best fits your organization&apos;s needs.
           All plans include our core security features with different levels of support and capabilities.
         </p>
       </div>
