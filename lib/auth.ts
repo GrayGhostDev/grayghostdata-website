@@ -1,17 +1,17 @@
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
-export function requireAuth() {
-  const { userId } = auth();
-  
+export async function requireAuth() {
+  const { userId } = await auth();
+
   if (!userId) {
-    redirect("/sign-in?redirect_url=" + encodeURIComponent(window.location.href));
+    redirect("/sign-in?redirect_url=/dashboard");
   }
 }
 
-export function redirectIfAuthenticated() {
-  const { userId } = auth();
-  
+export async function redirectIfAuthenticated() {
+  const { userId } = await auth();
+
   if (userId) {
     redirect("/dashboard");
   }
