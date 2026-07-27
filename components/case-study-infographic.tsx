@@ -68,21 +68,15 @@ export function CaseStudyInfographic({ metrics }: CaseStudyInfographicProps) {
     offset: ["start end", "end start"],
   });
 
+  // Hooks must run at the top level, not inside the map callback.
+  // These transforms are identical for every metric, so compute them once.
+  const y = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 1], [0, 1, 1]);
+
   return (
     <div ref={containerRef} className="py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {metrics.map((metric, index) => {
-          const y = useTransform(
-            scrollYProgress,
-            [0, 0.5, 1],
-            [50, 0, 0]
-          );
-          const opacity = useTransform(
-            scrollYProgress,
-            [0, 0.2, 1],
-            [0, 1, 1]
-          );
-
           return (
             <motion.div
               key={metric.label}

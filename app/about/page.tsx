@@ -362,7 +362,7 @@ export default function AboutPage() {
               Ready to Secure Your Digital Assets?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Let's discuss how we can help protect and optimize your business with our comprehensive security and data solutions.
+              Let&apos;s discuss how we can help protect and optimize your business with our comprehensive security and data solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="group" asChild>

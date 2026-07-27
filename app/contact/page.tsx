@@ -62,7 +62,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-xl text-muted-foreground">
-            Have a question or need assistance? We're here to help!
+            Have a question or need assistance? We&apos;re here to help!
           </p>
         </motion.div>
 

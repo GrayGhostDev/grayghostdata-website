@@ -172,7 +172,7 @@ export default function CybersecurityCaseStudy() {
           >
             <h2 className="text-3xl font-bold mb-4">Implementation Process</h2>
             <p className="text-lg text-muted-foreground">
-              Our systematic approach to transforming TechCorp's security infrastructure
+              Our systematic approach to transforming TechCorp&apos;s security infrastructure
             </p>
           </motion.div>
 
@@ -250,12 +250,12 @@ export default function CybersecurityCaseStudy() {
               </div>
             </div>
             <blockquote className="text-lg italic text-muted-foreground">
-              "Gray Ghost Data's security transformation has been a game-changer for
-              our organization. We've seen dramatic improvements in our security
+              &quot;Gray Ghost Data&apos;s security transformation has been a game-changer for
+              our organization. We&apos;ve seen dramatic improvements in our security
               posture, and the automated systems have significantly reduced our
               response times. The cost savings have exceeded our expectations, and
               we now have complete confidence in our ability to protect our assets
-              and maintain customer trust."
+              and maintain customer trust.&quot;
             </blockquote>
           </motion.div>
         </div>
@@ -273,7 +273,7 @@ export default function CybersecurityCaseStudy() {
           >
             <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Security?</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Contact us to discuss how we can help strengthen your organization's
+              Contact us to discuss how we can help strengthen your organization&apos;s
               security posture and achieve similar results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

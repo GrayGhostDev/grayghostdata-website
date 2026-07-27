@@ -138,7 +138,7 @@ export function CaseStudyContent({ study }: CaseStudyContentProps) {
                 <div className="flex items-start space-x-4">
                   <div className="flex-1">
                     <blockquote className="text-lg font-medium mb-4">
-                      "{study.testimonial.quote}"
+                      &quot;{study.testimonial.quote}&quot;
                     </blockquote>
                     <div>
                       <div className="font-semibold">{study.testimonial.author}</div>

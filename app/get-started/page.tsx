@@ -259,7 +259,7 @@ export default function GetStartedPage() {
         >
           <h1 className="text-4xl font-bold mb-4 neon-text">Get Started</h1>
           <p className="text-xl text-muted-foreground">
-            Tell us about your needs and we'll create a custom solution for you
+            Tell us about your needs and we&apos;ll create a custom solution for you
           </p>
         </motion.div>
 

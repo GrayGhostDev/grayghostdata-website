@@ -43,7 +43,7 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: typeof testimoni
         <CardContent className="p-6">
           <Quote className="h-8 w-8 text-primary/40 mb-4" />
           <p className="text-lg mb-6 text-foreground/80 italic">
-            "{testimonial.quote}"
+            &quot;{testimonial.quote}&quot;
           </p>
           <div className="flex items-center gap-4">
             <Avatar className="h-12 w-12">
