@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ServiceCard } from "@/components/service-card";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,8 @@ const services: {
 }[] = [
   {
     title: "Cybersecurity Assessment",
-    description: "Comprehensive evaluation of your security infrastructure to identify vulnerabilities and strengthen your defenses.",
+    description:
+      "Comprehensive evaluation of your security infrastructure to identify vulnerabilities and strengthen your defenses.",
     iconName: "shield",
     features: [
       "Penetration Testing",
@@ -37,7 +39,8 @@ const services: {
   },
   {
     title: "Data Analytics Solutions",
-    description: "Transform your raw data into actionable insights with our advanced analytics solutions.",
+    description:
+      "Transform your raw data into actionable insights with our advanced analytics solutions.",
     iconName: "database",
     features: [
       "Business Intelligence",
@@ -47,18 +50,13 @@ const services: {
       "Custom Dashboards",
       "Reporting Automation",
     ],
-    technologies: [
-      "Python",
-      "R",
-      "Tableau",
-      "Power BI",
-      "Apache Spark",
-    ],
+    technologies: ["Python", "R", "Tableau", "Power BI", "Apache Spark"],
     learnMoreHref: "/services/data-analytics",
   },
   {
     title: "AI & Machine Learning",
-    description: "Leverage the power of artificial intelligence to automate processes and gain competitive advantages.",
+    description:
+      "Leverage the power of artificial intelligence to automate processes and gain competitive advantages.",
     iconName: "brain",
     features: [
       "Custom ML Models",
@@ -68,18 +66,13 @@ const services: {
       "Predictive Maintenance",
       "AI Strategy",
     ],
-    technologies: [
-      "TensorFlow",
-      "PyTorch",
-      "scikit-learn",
-      "OpenCV",
-      "NLTK",
-    ],
+    technologies: ["TensorFlow", "PyTorch", "scikit-learn", "OpenCV", "NLTK"],
     learnMoreHref: "/services/ai-machine-learning",
   },
   {
     title: "Blockchain Solutions",
-    description: "Build secure and scalable blockchain applications for your business needs.",
+    description:
+      "Build secure and scalable blockchain applications for your business needs.",
     iconName: "git-merge",
     features: [
       "Smart Contract Development",
@@ -100,7 +93,8 @@ const services: {
   },
   {
     title: "Security Operations",
-    description: "24/7 monitoring and response to protect your organization from cyber threats.",
+    description:
+      "24/7 monitoring and response to protect your organization from cyber threats.",
     iconName: "shield-alert",
     features: [
       "Security Monitoring",
@@ -121,7 +115,8 @@ const services: {
   },
   {
     title: "Cloud Security",
-    description: "Secure your cloud infrastructure and applications with our comprehensive cloud security solutions.",
+    description:
+      "Secure your cloud infrastructure and applications with our comprehensive cloud security solutions.",
     iconName: "cloud",
     features: [
       "Cloud Security Assessment",
@@ -142,7 +137,8 @@ const services: {
   },
   {
     title: "Business Intelligence",
-    description: "Make data-driven decisions with our comprehensive business intelligence solutions.",
+    description:
+      "Make data-driven decisions with our comprehensive business intelligence solutions.",
     iconName: "line-chart",
     features: [
       "Data Warehousing",
@@ -163,7 +159,8 @@ const services: {
   },
   {
     title: "Custom Development",
-    description: "Build secure and scalable applications tailored to your business needs.",
+    description:
+      "Build secure and scalable applications tailored to your business needs.",
     iconName: "code",
     features: [
       "Web Applications",
@@ -173,13 +170,7 @@ const services: {
       "Legacy Modernization",
       "DevOps",
     ],
-    technologies: [
-      "React",
-      "Node.js",
-      "Python",
-      "AWS",
-      "Docker",
-    ],
+    technologies: ["React", "Node.js", "Python", "AWS", "Docker"],
     learnMoreHref: "/services/custom-development",
   },
 ];
@@ -200,8 +191,8 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className="text-xl text-muted-foreground">
-              Comprehensive cybersecurity and data analytics solutions to protect
-              and empower your business.
+              Comprehensive cybersecurity and data analytics solutions to
+              protect and empower your business.
             </p>
           </motion.div>
 
@@ -220,7 +211,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto mb-24"
           >
-            <ServiceFinder 
+            <ServiceFinder
               title="Find the Right Solution for Your Business"
               description="Answer a few questions to get personalized service recommendations tailored to your needs."
             />
@@ -238,15 +229,15 @@ export default function ServicesPage() {
               Ready to Get Started?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Contact us today to discuss how we can help secure and optimize your
-              business operations.
+              Contact us today to discuss how we can help secure and optimize
+              your business operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
-                <a href="/contact">Contact Us</a>
+                <Link href="/contact">Contact Us</Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="/case-studies">View Case Studies</a>
+                <Link href="/case-studies">View Case Studies</Link>
               </Button>
             </div>
           </motion.div>

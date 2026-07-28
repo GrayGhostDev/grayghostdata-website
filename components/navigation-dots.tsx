@@ -14,6 +14,7 @@ export function NavigationDots({ items, currentPath }: NavigationDotsProps) {
 
   useEffect(() => {
     const currentIndex = items.findIndex(item => item.href === currentPath);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
     setActiveIndex(currentIndex >= 0 ? currentIndex : 0);
   }, [currentPath, items]);
 
@@ -26,6 +27,7 @@ export function NavigationDots({ items, currentPath }: NavigationDotsProps) {
       }));
     };
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
     setPositions(calculatePositions());
   }, [items]);
 

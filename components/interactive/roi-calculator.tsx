@@ -81,6 +81,7 @@ export function ROICalculator() {
   const [showAdvanced, setShowAdvanced] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
     setResults(calculateROI(metrics));
   }, [metrics]);
 

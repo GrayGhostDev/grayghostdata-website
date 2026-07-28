@@ -49,7 +49,7 @@ export default function ClientPortal() {
           <Button variant="outline" size="icon">
             <Bell className="h-4 w-4" />
           </Button>
-          <UserButton afterSignOutUrl="/" />
+          <UserButton />
         </div>
       </div>
 

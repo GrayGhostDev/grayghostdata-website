@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { EvaluationTest } from "@/components/evaluation-test";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -15,13 +16,14 @@ export function EvaluationContent({ evaluation }: EvaluationContentProps) {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold mb-4">Evaluation Not Found</h1>
         <p className="text-muted-foreground mb-4">
-          Sorry, we couldn&apos;t find the evaluation test you&apos;re looking for.
+          Sorry, we couldn&apos;t find the evaluation test you&apos;re looking
+          for.
         </p>
         <Button asChild>
-          <a href="/">
+          <Link href="/">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Go Back
-          </a>
+          </Link>
         </Button>
       </div>
     );
@@ -30,15 +32,11 @@ export function EvaluationContent({ evaluation }: EvaluationContentProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-3xl mx-auto">
-        <Button
-          variant="ghost"
-          asChild
-          className="mb-6"
-        >
-          <a href="/">
+        <Button variant="ghost" asChild className="mb-6">
+          <Link href="/">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back
-          </a>
+          </Link>
         </Button>
 
         <div className="mb-8">

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation, useInView, type Variants } from "framer-motion";
 import { 
   Shield, Database, Code, Lock, Cloud, 
   LineChart, Network, FileSearch, AlertTriangle, 
@@ -99,7 +99,7 @@ const services = [
   }
 ];
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
     opacity: 1, 

@@ -21,7 +21,7 @@ interface ServiceProviderProps {
   serviceType: ServiceType;
 }
 
-export function ServiceProvider({ children, serviceType }: ServiceProviderProps): JSX.Element {
+export function ServiceProvider({ children, serviceType }: ServiceProviderProps): React.JSX.Element {
   return (
     <ServiceContext.Provider value={{ serviceType }}>
       {children}

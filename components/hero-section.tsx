@@ -20,6 +20,7 @@ const BinaryRain = () => {
     };
 
     const initialStreams = Array.from({ length: 20 }, generateStream);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
     setStreams(initialStreams);
 
     const interval = setInterval(() => {
