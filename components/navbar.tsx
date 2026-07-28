@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSelector } from "@/components/language-selector";
 import { useTranslation } from "@/lib/i18n/use-translation";
-import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignInButton, useUser } from "@clerk/nextjs";
 
 const routes = [
   {
@@ -31,6 +31,8 @@ const routes = [
 export function Navbar() {
   const pathname = usePathname();
   const { t } = useTranslation();
+  // Clerk v7 removed <SignedIn>/<SignedOut>; gate on the auth state instead.
+  const { isSignedIn } = useUser();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -50,7 +52,7 @@ export function Navbar() {
                   "transition-colors hover:text-foreground/80",
                   pathname === route.href
                     ? "text-foreground"
-                    : "text-foreground/60"
+                    : "text-foreground/60",
                 )}
               >
                 {t(route.label)}
@@ -63,20 +65,19 @@ export function Navbar() {
             {/* Mobile menu can be added here */}
           </div>
           <nav className="flex items-center space-x-2">
-            <SignedIn>
+            {isSignedIn ? (
               <Link href="/client-portal">
                 <Button variant="ghost" className="text-sm">
                   {t("nav.clientPortal")}
                 </Button>
               </Link>
-            </SignedIn>
-            <SignedOut>
+            ) : (
               <SignInButton mode="modal">
                 <Button variant="ghost" className="text-sm">
                   {t("nav.clientPortal")}
                 </Button>
               </SignInButton>
-            </SignedOut>
+            )}
             <LanguageSelector />
             <ThemeToggle />
           </nav>
