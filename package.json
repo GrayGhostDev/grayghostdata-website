@@ -6,7 +6,7 @@
     "dev": "next dev -p 3003",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "postbuild": "next-sitemap",
     "dev:frontend": "next dev -p 3003",
     "dev:backend": "next dev --port 3004",
@@ -92,7 +92,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/sharp": "^0.32.0",
-    "eslint": "^10.8.0",
+    "eslint": "^9.39.0",
     "eslint-config-next": "16.2.12",
     "postcss": "^8.5.23",
     "typescript": "^5.3.3"
