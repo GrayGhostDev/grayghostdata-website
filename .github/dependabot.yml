@@ -8,6 +8,11 @@ updates:
     groups:
       npm-minor-patch:
         update-types: ["minor", "patch"]
+    ignore:
+      # eslint 10 breaks eslint-plugin-react (context.getFilename) with
+      # eslint-config-next 16; stay on 9 until config-next supports 10.
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
