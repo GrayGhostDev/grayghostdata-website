@@ -74,6 +74,7 @@ const SecurityPolicyManager: React.FC = () => {
   // Effect to update policies when query data changes
   useEffect(() => {
     if (queryResult) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
       setPolicies(queryResult);
     }
   }, [queryResult]);

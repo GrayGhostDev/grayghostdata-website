@@ -98,6 +98,7 @@ export function ThreatMonitor() {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
     refreshData();
     const interval = setInterval(refreshData, 30000);
     return () => clearInterval(interval);

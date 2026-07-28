@@ -51,6 +51,7 @@ export function BinaryRain() {
       (_, i) => generateStream(i)
     );
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
     setStreams(initialStreams);
 
     const interval = setInterval(() => {

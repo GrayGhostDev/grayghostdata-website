@@ -236,6 +236,7 @@ export function TerminalConsole() {
 
   useEffect(() => {
     if (isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
       handleCommand('help');
       if (inputRef.current) {
         inputRef.current.focus();

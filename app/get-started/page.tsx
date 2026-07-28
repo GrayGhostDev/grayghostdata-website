@@ -207,6 +207,7 @@ export default function GetStartedPage() {
   useEffect(() => {
     const serviceParam = searchParams.get('service');
     if (serviceParam && serviceAreas.some(s => s.id === serviceParam)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
       setSelectedService(serviceParam);
     }
   }, [searchParams]);

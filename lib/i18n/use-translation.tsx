@@ -17,6 +17,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const savedLocale = localStorage.getItem("language") as ValidLocale;
     if (savedLocale && Object.keys(translations).includes(savedLocale)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount/sync/animation effect
       setLocale(savedLocale);
     }
   }, []);
